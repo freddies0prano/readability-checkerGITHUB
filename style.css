@@ -577,6 +577,21 @@ nav a.active { color: #1a1a18; font-weight: 500; }
   font-size: 13px;
 }
 
+.footer-links {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #888;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: #ccc;
+}
+
 /* =====================
    Responsive
 ===================== */
