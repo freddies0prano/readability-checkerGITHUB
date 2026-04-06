@@ -155,6 +155,12 @@ nav a.active { color: #1a1a18; font-weight: 500; }
   color: #1a1a18;
 }
 
+.nav-dropdown-divider {
+  height: 1px;
+  background: #e8e6e0;
+  margin: 6px 0;
+}
+
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
   display: block;
