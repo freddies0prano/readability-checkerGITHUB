@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readability Checker for Healthcare Writing — Free Tool | ReadabilityTool</title>
+  <meta name="description" content="Free readability checker for healthcare and patient education materials. Check against SMOG, Flesch, and other formulas recommended for health communications. No account required." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">Calculators ▾</button>
+          <div class="nav-dropdown-menu">
+            <a href="/flesch-reading-ease/">Flesch Reading Ease</a>
+            <a href="/flesch-kincaid-calculator/">Flesch-Kincaid Grade Level</a>
+            <a href="/gunning-fog-index-calculator/">Gunning Fog Index</a>
+            <a href="/smog-index-calculator/">SMOG Index</a>
+            <a href="/coleman-liau-index/">Coleman-Liau Index</a>
+            <a href="/automated-readability-index/">Automated Readability Index</a>
+          </div>
+        </div>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Readability Checker for Healthcare Writing</h1>
+        <p class="subtitle">Check patient education materials, health communications, and clinical documents against the readability standards recommended by leading health organizations.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste your patient education material, health communication, or clinical document here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Analyze Text</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid">
+            <div class="score-card">
+              <div class="score-name">Flesch Reading Ease</div>
+              <div class="score-value" id="val-fre">—</div>
+              <div class="score-label" id="label-fre"></div>
+              <div class="score-desc">AMA recommends patient materials score 70 or above. Higher scores mean broader accessibility.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Flesch-Kincaid Grade</div>
+              <div class="score-value" id="val-fkg">—</div>
+              <div class="score-label" id="label-fkg"></div>
+              <div class="score-desc">NIH and AMA recommend Grade 6 or below for patient-facing health materials.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Gunning Fog Index</div>
+              <div class="score-value" id="val-gfi">—</div>
+              <div class="score-label" id="label-gfi"></div>
+              <div class="score-desc">Estimates years of education needed. Patient materials should aim for 8 or below.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">SMOG Index</div>
+              <div class="score-value" id="val-smog">—</div>
+              <div class="score-label" id="label-smog"></div>
+              <div class="score-desc">The gold standard for health communications. Target Grade 6 or below. Requires 30+ sentences.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Coleman-Liau Index</div>
+              <div class="score-value" id="val-cli">—</div>
+              <div class="score-label" id="label-cli"></div>
+              <div class="score-desc">Character-based grade level. Consistent for medical terminology-heavy texts.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Automated Readability Index</div>
+              <div class="score-value" id="val-ari">—</div>
+              <div class="score-label" id="label-ari"></div>
+              <div class="score-desc">Grade level based on characters and sentence length.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your content above and click <strong>Analyze Text</strong> to check it against healthcare readability standards.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>Readability Standards in Healthcare</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Why readability matters for patients</h3>
+            <p>Nearly half of American adults read at or below a 6th grade level, according to the National Center for Education Statistics. Patient education materials written above this level lead to poor health outcomes, medication errors, and reduced treatment adherence.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Recommended standards</h3>
+            <p>The American Medical Association (AMA), the National Institutes of Health (NIH), and the Centers for Disease Control and Prevention (CDC) all recommend writing patient-facing materials at a 6th grade reading level or below.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>The SMOG standard</h3>
+            <p>The SMOG Index is the preferred readability formula for health communications because it is specifically designed for health literacy assessment. Unlike other formulas, SMOG focuses entirely on polysyllabic words — the primary barrier to patient comprehension.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>Healthcare Readability Targets by Document Type</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Patient education materials</h3>
+            <p>Discharge instructions, medication guides, and condition fact sheets should target Grade 5–6. Use plain language, active voice, and short sentences. Avoid medical jargon wherever possible.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Informed consent forms</h3>
+            <p>Despite their legal nature, informed consent documents should be written as clearly as possible. Research shows patients who understand consent forms are more likely to comply with treatment and less likely to experience adverse outcomes.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Public health communications</h3>
+            <p>Public health announcements, vaccination information, and community health materials should target Grade 6–8 to reach the broadest possible audience. The CDC's Clear Communication Index is a useful companion tool for these materials.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>Plain Language Tips for Healthcare Writers</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Replace medical jargon</h3>
+            <p>Use everyday words wherever accuracy allows: "heart attack" instead of "myocardial infarction," "high blood pressure" instead of "hypertension," "swelling" instead of "edema." When technical terms are necessary, define them immediately in plain language.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Use active voice</h3>
+            <p>"Take this medication with food" is clearer than "This medication should be taken with food." Active voice is shorter, more direct, and easier for patients to act on — especially important for instructions and safety information.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Keep sentences short</h3>
+            <p>Aim for an average sentence length of 10–15 words in patient materials. Each sentence should contain one clear instruction or piece of information. Patients under stress or with low health literacy process shorter sentences much more reliably.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

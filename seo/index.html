@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readability Checker for SEO — Free Tool | ReadabilityTool</title>
+  <meta name="description" content="Free readability checker for SEO content. Check your blog posts, landing pages, and articles against all major readability formulas. Better readability means better rankings." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">Calculators ▾</button>
+          <div class="nav-dropdown-menu">
+            <a href="/flesch-reading-ease/">Flesch Reading Ease</a>
+            <a href="/flesch-kincaid-calculator/">Flesch-Kincaid Grade Level</a>
+            <a href="/gunning-fog-index-calculator/">Gunning Fog Index</a>
+            <a href="/smog-index-calculator/">SMOG Index</a>
+            <a href="/coleman-liau-index/">Coleman-Liau Index</a>
+            <a href="/automated-readability-index/">Automated Readability Index</a>
+          </div>
+        </div>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Readability Checker for SEO Content</h1>
+        <p class="subtitle">Check your blog posts, landing pages, and articles for readability. Search engines reward content that real people can actually read.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste your blog post, article, or landing page copy here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Analyze Text</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid">
+            <div class="score-card">
+              <div class="score-name">Flesch Reading Ease</div>
+              <div class="score-value" id="val-fre">—</div>
+              <div class="score-label" id="label-fre"></div>
+              <div class="score-desc">Target 60–70 for most web content. Higher scores keep readers on page longer.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Flesch-Kincaid Grade</div>
+              <div class="score-value" id="val-fkg">—</div>
+              <div class="score-label" id="label-fkg"></div>
+              <div class="score-desc">Most high-performing blog content sits between Grade 6 and Grade 8.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Gunning Fog Index</div>
+              <div class="score-value" id="val-gfi">—</div>
+              <div class="score-label" id="label-gfi"></div>
+              <div class="score-desc">Keep below 12 for general audiences. Complex content increases bounce rates.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">SMOG Index</div>
+              <div class="score-value" id="val-smog">—</div>
+              <div class="score-label" id="label-smog"></div>
+              <div class="score-desc">Grade level estimate. Requires 30+ sentences for accuracy.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Coleman-Liau Index</div>
+              <div class="score-value" id="val-cli">—</div>
+              <div class="score-label" id="label-cli"></div>
+              <div class="score-desc">Character-based grade level. Consistent across different content types.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Automated Readability Index</div>
+              <div class="score-value" id="val-ari">—</div>
+              <div class="score-label" id="label-ari"></div>
+              <div class="score-desc">Grade level based on characters and sentence length.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your content above and click <strong>Analyze Text</strong> to see your readability scores.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>Why Readability Matters for SEO</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Google rewards readable content</h3>
+            <p>Google's ranking systems evaluate user engagement signals like time on page, scroll depth, and bounce rate. Content that is easier to read keeps visitors engaged longer — which sends positive signals to search engines.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Match your audience's reading level</h3>
+            <p>Most successful blog content targets a 6th–8th grade reading level — not because readers aren't intelligent, but because people skim online and prefer clear, direct writing. Matching your content to your audience reduces friction.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Featured snippets favor plain language</h3>
+            <p>Google's featured snippets and AI Overviews tend to pull from content that clearly and directly answers questions. Concise sentences and simple vocabulary increase the likelihood your content gets selected.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>SEO Readability Targets by Content Type</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Blog posts & articles</h3>
+            <p>Aim for a Flesch Reading Ease score of 60–70 and a Flesch-Kincaid Grade Level of 7–9. Keep average sentence length under 20 words. Use subheadings to break up long sections.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Landing pages & product copy</h3>
+            <p>Landing pages benefit from even simpler writing — target a Flesch score of 70+ and Grade Level of 6–8. Short sentences and bullet points increase conversion rates and reduce cognitive load.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Technical & niche content</h3>
+            <p>Technical content written for expert audiences can have a higher grade level. The key is consistency — your readability level should match what your target reader expects and is comfortable with.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>How to Improve Readability for SEO</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Shorten your sentences</h3>
+            <p>Long sentences are the single biggest driver of high grade-level scores. Aim for an average of 15–18 words per sentence. Break any sentence over 25 words into two.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Replace complex words</h3>
+            <p>Swap multi-syllable words for simpler alternatives where meaning allows. "Use" instead of "utilize." "Show" instead of "demonstrate." "Help" instead of "assistance." Simpler words are almost always clearer.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Use active voice</h3>
+            <p>Active voice produces shorter, more direct sentences. "The tool analyzes your text" is clearer than "Your text is analyzed by the tool." Active voice naturally lowers your readability score.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

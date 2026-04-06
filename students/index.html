@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Readability Checker for Students — Free Tool | ReadabilityTool</title>
+  <meta name="description" content="Free readability checker for students. Check essays, assignments, and papers for reading level and complexity. Instant scores with plain-language feedback. No account required." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">Calculators ▾</button>
+          <div class="nav-dropdown-menu">
+            <a href="/flesch-reading-ease/">Flesch Reading Ease</a>
+            <a href="/flesch-kincaid-calculator/">Flesch-Kincaid Grade Level</a>
+            <a href="/gunning-fog-index-calculator/">Gunning Fog Index</a>
+            <a href="/smog-index-calculator/">SMOG Index</a>
+            <a href="/coleman-liau-index/">Coleman-Liau Index</a>
+            <a href="/automated-readability-index/">Automated Readability Index</a>
+          </div>
+        </div>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Readability Checker for Students</h1>
+        <p class="subtitle">Check your essays, papers, and assignments for reading level and clarity. Instant scores with plain-language feedback — no account required.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste your essay, paper, or assignment here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Analyze Text</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid">
+            <div class="score-card">
+              <div class="score-name">Flesch Reading Ease</div>
+              <div class="score-value" id="val-fre">—</div>
+              <div class="score-label" id="label-fre"></div>
+              <div class="score-desc">Scale 0–100. Higher = easier to read. Good academic writing balances clarity with substance.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Flesch-Kincaid Grade</div>
+              <div class="score-value" id="val-fkg">—</div>
+              <div class="score-label" id="label-fkg"></div>
+              <div class="score-desc">The U.S. grade level needed to read your text. Useful for checking if your writing matches your assignment level.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Gunning Fog Index</div>
+              <div class="score-value" id="val-gfi">—</div>
+              <div class="score-label" id="label-gfi"></div>
+              <div class="score-desc">Estimates years of education needed. High scores often signal overly long sentences.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">SMOG Index</div>
+              <div class="score-value" id="val-smog">—</div>
+              <div class="score-label" id="label-smog"></div>
+              <div class="score-desc">Grade level estimate. Most accurate with 30+ sentences.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Coleman-Liau Index</div>
+              <div class="score-value" id="val-cli">—</div>
+              <div class="score-label" id="label-cli"></div>
+              <div class="score-desc">Grade level based on characters per word. Reliable for academic writing.</div>
+            </div>
+            <div class="score-card">
+              <div class="score-name">Automated Readability Index</div>
+              <div class="score-value" id="val-ari">—</div>
+              <div class="score-label" id="label-ari"></div>
+              <div class="score-desc">Grade level based on characters and sentence length.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Analyze Text</strong> to see your readability scores.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>How Students Can Use Readability Scores</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Check your essay's reading level</h3>
+            <p>Readability scores give you an objective measure of how complex your writing is. If your score is much higher or lower than your assignment's target level, you can make adjustments before submitting.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Identify problem sentences</h3>
+            <p>The Breakdown panel shows your average sentence length and flags when sentences are too long. Long, tangled sentences are one of the most common writing problems in student essays — and one of the easiest to fix.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Improve clarity without losing depth</h3>
+            <p>Good academic writing doesn't have to be hard to read. You can use precise, sophisticated vocabulary while still writing clear, well-structured sentences. A lower grade-level score doesn't mean worse writing — it often means better writing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>Readability Targets by Assignment Type</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>High school essays</h3>
+            <p>High school writing typically targets Grade 9–11 on the Flesch-Kincaid scale. Focus on clear argument structure and varied sentence length rather than trying to sound complex.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>College papers</h3>
+            <p>College-level writing generally falls between Grade 12 and Grade 14. Academic papers require precise vocabulary and well-constructed arguments — but clarity is still valued over unnecessary complexity.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Creative writing</h3>
+            <p>Creative writing has no single readability target. Most published fiction sits between Grade 6 and Grade 9, regardless of how sophisticated the themes are. Simple sentences and strong word choice outperform complex sentence structures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>Writing Tips for Better Readability</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>One idea per sentence</h3>
+            <p>The most common cause of hard-to-read sentences is trying to pack too many ideas into one. If a sentence contains more than one main idea, split it into two. Your reader will follow your argument more easily.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Cut unnecessary words</h3>
+            <p>"In order to" can almost always be replaced with "to." "Due to the fact that" means "because." Trimming filler phrases shortens sentences, lowers your grade-level score, and makes your writing sharper.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Read your writing out loud</h3>
+            <p>If you stumble while reading a sentence aloud, your reader will stumble too. Reading aloud is one of the most effective ways to catch overly complex sentences before your teacher does.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
