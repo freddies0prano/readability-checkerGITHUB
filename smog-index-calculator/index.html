@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMOG Index Calculator — Free Online Tool | ReadabilityTool</title>
+  <meta name="description" content="Free SMOG Index calculator. The SMOG readability formula is widely used in healthcare and public health writing. Paste your text and get your SMOG grade level instantly." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>SMOG Index Calculator</h1>
+        <p class="subtitle">The SMOG Index is the standard readability formula for healthcare and public health writing. Paste your text below — requires 30+ sentences for full accuracy.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste or type your text here... (30+ sentences recommended for accurate SMOG scoring)"></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Calculate SMOG Score</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid single">
+            <div class="score-card featured">
+              <div class="score-name">SMOG Index</div>
+              <div class="score-value" id="val-smog">—</div>
+              <div class="score-label" id="label-smog"></div>
+              <div class="score-desc">SMOG estimates the grade level needed to understand your text. Most accurate with 30+ sentences. Public health guidelines typically target a SMOG score of Grade 6–8.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Calculate SMOG Score</strong>. For best results, use 30 or more sentences.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>What Is the SMOG Index?</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>How it works</h3>
+            <p>SMOG stands for Simple Measure of Gobbledygook. Developed by G. Harry McLaughlin in 1969, it estimates the years of education needed to understand a piece of writing based entirely on the count of polysyllabic words (3+ syllables).</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Why 30+ sentences?</h3>
+            <p>The SMOG formula was designed and validated using samples of exactly 30 sentences. With fewer sentences, the polysyllabic word count becomes statistically unreliable. For short texts, other formulas like Flesch-Kincaid give more accurate results.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Healthcare standard</h3>
+            <p>The American Medical Association and the National Institutes of Health recommend the SMOG Index for evaluating patient education materials. The target for health communications is typically Grade 6 or below to reach the broadest audience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>How to Improve Your SMOG Score</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Reduce polysyllabic words</h3>
+            <p>SMOG is driven entirely by words with 3+ syllables. Replace medical jargon with plain language equivalents: "high blood pressure" instead of "hypertension," "heart attack" instead of "myocardial infarction."</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Define when you can't simplify</h3>
+            <p>Some technical terms can't be replaced. In those cases, introduce the term with a plain-language explanation on first use. This won't lower your SMOG score but improves actual comprehension for readers.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Test with your audience</h3>
+            <p>SMOG is a starting point, not a guarantee. Even a low SMOG score doesn't mean patients will understand health information — cultural context, health literacy, and prior knowledge all play a role beyond what formulas can measure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>window.ACTIVE_SCORE = 'smog';</script>
+</body>
+</html>

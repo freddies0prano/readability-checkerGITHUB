@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Readability Checker — Free Online Readability Score Tool</title>
+  <title>Readability Checker — Free Online Readability Score Tool | ReadabilityTool</title>
   <meta name="description" content="Free readability checker tool. Instantly calculate Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog, SMOG, Coleman-Liau, and ARI scores for any text." />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
@@ -12,10 +12,10 @@
 
   <header class="site-header">
     <div class="container">
-      <div class="logo">Readability<span>Checker</span></div>
+      <a href="/" class="logo">Readability<span>Tool</span></a>
       <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
       </nav>
     </div>
   </header>
@@ -24,7 +24,7 @@
     <section class="hero">
       <div class="container">
         <h1>Free Readability Score Checker</h1>
-        <p class="subtitle">Paste your text below to instantly see its reading level, grade score, and complexity breakdown.</p>
+        <p class="subtitle">Paste your text below to instantly see its reading level, grade score, and complexity breakdown across 6 readability formulas.</p>
       </div>
     </section>
 
@@ -41,7 +41,6 @@
         </div>
 
         <div id="results">
-
           <div class="stats-row">
             <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
             <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
@@ -50,49 +49,42 @@
           </div>
 
           <div class="scores-grid">
-
             <div class="score-card">
               <div class="score-name">Flesch Reading Ease</div>
               <div class="score-value" id="val-fre">—</div>
               <div class="score-label" id="label-fre"></div>
               <div class="score-desc">Rates text on a 0–100 scale. Higher scores mean easier reading. 90+ is very easy; below 30 is very difficult.</div>
             </div>
-
             <div class="score-card">
               <div class="score-name">Flesch-Kincaid Grade</div>
               <div class="score-value" id="val-fkg">—</div>
               <div class="score-label" id="label-fkg"></div>
               <div class="score-desc">Estimates the U.S. school grade level a reader needs to understand the text.</div>
             </div>
-
             <div class="score-card">
               <div class="score-name">Gunning Fog Index</div>
               <div class="score-value" id="val-gfi">—</div>
               <div class="score-label" id="label-gfi"></div>
               <div class="score-desc">Estimates years of formal education needed. Heavily influenced by long sentences and complex words.</div>
             </div>
-
             <div class="score-card">
               <div class="score-name">SMOG Index</div>
               <div class="score-value" id="val-smog">—</div>
               <div class="score-label" id="label-smog"></div>
               <div class="score-desc">Grade level estimate. Most accurate with 30+ sentences. Widely used in healthcare and public communications.</div>
             </div>
-
             <div class="score-card">
               <div class="score-name">Coleman-Liau Index</div>
               <div class="score-value" id="val-cli">—</div>
               <div class="score-label" id="label-cli"></div>
               <div class="score-desc">Grade level based on characters per word rather than syllables. Useful for technical or scientific text.</div>
             </div>
-
             <div class="score-card">
               <div class="score-name">Automated Readability Index</div>
               <div class="score-value" id="val-ari">—</div>
               <div class="score-label" id="label-ari"></div>
               <div class="score-desc">Grade level based on characters per word and words per sentence. Reliable for a wide range of writing styles.</div>
             </div>
-
           </div>
 
           <div class="suggestions">
@@ -103,7 +95,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -114,38 +105,37 @@
         <h2>What Do These Scores Mean?</h2>
         <div class="explainer-grid">
           <div class="explainer-card">
-            <h3>Flesch Reading Ease</h3>
+            <h3><a href="/flesch-reading-ease/">Flesch Reading Ease</a></h3>
             <p>Scores range from 0–100. A score of 70–80 is easy for most adults. Newspapers typically score around 65. Academic writing often falls below 30.</p>
           </div>
           <div class="explainer-card">
-            <h3>Flesch-Kincaid Grade Level</h3>
+            <h3><a href="/flesch-kincaid-calculator/">Flesch-Kincaid Grade Level</a></h3>
             <p>Corresponds to U.S. school grade levels. A score of 8 means an 8th grader can read it comfortably. Most popular novels score between 6 and 8.</p>
           </div>
           <div class="explainer-card">
-            <h3>Gunning Fog Index</h3>
+            <h3><a href="/gunning-fog-index-calculator/">Gunning Fog Index</a></h3>
             <p>Estimates years of education needed to understand the text. Scores above 17 are considered extremely difficult. Most business writing aims for 12 or below.</p>
           </div>
           <div class="explainer-card">
-            <h3>SMOG Index</h3>
+            <h3><a href="/smog-index-calculator/">SMOG Index</a></h3>
             <p>Simple Measure of Gobbledygook. Requires 30+ sentences for full accuracy. A standard benchmark in public health writing, which typically targets Grade 6–8.</p>
           </div>
           <div class="explainer-card">
-            <h3>Coleman-Liau Index</h3>
+            <h3><a href="/coleman-liau-index/">Coleman-Liau Index</a></h3>
             <p>Uses characters per word rather than syllables, making it more consistent across different text types. Returns a U.S. grade level estimate.</p>
           </div>
           <div class="explainer-card">
-            <h3>Automated Readability Index</h3>
+            <h3><a href="/automated-readability-index/">Automated Readability Index</a></h3>
             <p>One of the oldest readability formulas. Uses characters and sentence length to estimate the grade level needed. Commonly used for technical writing assessment.</p>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 ReadabilityChecker. Free to use.</p>
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
     </div>
   </footer>
 

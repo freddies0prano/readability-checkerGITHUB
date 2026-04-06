@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunning Fog Index Calculator — Free Online Tool | ReadabilityTool</title>
+  <meta name="description" content="Free Gunning Fog Index calculator. Find out how many years of education are needed to understand your text. Paste your text and get your Fog score instantly." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Gunning Fog Index Calculator</h1>
+        <p class="subtitle">Find out how many years of formal education a reader needs to understand your text. Paste your content below for an instant Fog score.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste or type your text here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Calculate Fog Score</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid single">
+            <div class="score-card featured">
+              <div class="score-name">Gunning Fog Index</div>
+              <div class="score-value" id="val-gfi">—</div>
+              <div class="score-label" id="label-gfi"></div>
+              <div class="score-desc">The score estimates years of formal education needed to understand the text. A score of 12 corresponds to a high school graduate. A score of 6 is accessible to most adults.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Calculate Fog Score</strong> to see your Gunning Fog Index.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>What Is the Gunning Fog Index?</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>How it works</h3>
+            <p>Developed by Robert Gunning in 1952, the Fog Index measures the complexity of English writing. It calculates a score based on average sentence length and the percentage of complex words — defined as words with three or more syllables.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Score reference</h3>
+            <p>A score of 6 is easily understood by most people. Scores of 8–12 are suitable for general audiences. Scores of 12–17 require high school to college education. Above 17 is considered extremely difficult and suited only for specialists.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Common benchmarks</h3>
+            <p>Time magazine typically scores around 11. The Wall Street Journal averages 11–12. Academic journals often score 15–20. Most business communication guidelines recommend keeping the Fog Index under 12.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>How to Reduce Your Gunning Fog Score</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Target complex words</h3>
+            <p>The Fog Index heavily penalizes words with 3+ syllables. Audit your text for unnecessarily complex vocabulary. Often a simpler word exists that conveys the same meaning without losing precision.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Shorten sentences</h3>
+            <p>Long sentences compound the effect of complex words. Breaking long sentences into two shorter ones will lower your Fog score quickly. Aim for an average sentence length below 20 words.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>When fog is unavoidable</h3>
+            <p>Technical fields like medicine, law, and engineering require precise terminology that naturally increases the Fog score. In these cases, a higher score is expected and appropriate for the audience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>window.ACTIVE_SCORE = 'gfi';</script>
+</body>
+</html>

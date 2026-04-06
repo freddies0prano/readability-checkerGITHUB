@@ -1,5 +1,6 @@
 // =====================
 //  Readability Checker
+//  Supports single-score pages via window.ACTIVE_SCORE
 // =====================
 
 // --- Plain descriptive labels — no judgment, just facts ---
@@ -84,8 +85,10 @@ function automatedReadability(words, sentences, chars) {
 
 // --- Update a single score card ---
 function setCard(id, value, label) {
-  document.getElementById('val-' + id).textContent   = value !== null ? value : '—';
-  document.getElementById('label-' + id).textContent = label || '';
+  const valEl = document.getElementById('val-' + id);
+  const labelEl = document.getElementById('label-' + id);
+  if (valEl)   valEl.textContent   = value !== null ? value : '—';
+  if (labelEl) labelEl.textContent = label || '';
 }
 
 // --- Main analyze ---
@@ -127,21 +130,22 @@ function analyze() {
   setCard('ari',  ari  !== null ? Math.max(0, ari).toFixed(1)  : null, ari  !== null ? gradeLabel(ari)      : '');
 
   // --- Breakdown panel ---
+  const active = window.ACTIVE_SCORE || null;
   const items = [];
 
-  // Average grade across grade-based scores
-  const gradeScores = [fkg, gfi, cli, ari].filter(s => s !== null);
-  if (gradeScores.length > 0) {
-    const avg = gradeScores.reduce((a, b) => a + b, 0) / gradeScores.length;
-    items.push(`<strong>Overall reading level:</strong> ${gradeLabel(avg)} (average across grade-based scores).`);
+  if (!active) {
+    // Full page — show all breakdown items
+    const gradeScores = [fkg, gfi, cli, ari].filter(s => s !== null);
+    if (gradeScores.length > 0) {
+      const avg = gradeScores.reduce((a, b) => a + b, 0) / gradeScores.length;
+      items.push(`<strong>Overall reading level:</strong> ${gradeLabel(avg)} (average across grade-based scores).`);
+    }
+    if (fre !== null) {
+      items.push(`<strong>Flesch Reading Ease score of ${Math.max(0, fre).toFixed(1)}:</strong> ${freLabel(fre)}. Scores range from 0 (most difficult) to 100 (easiest).`);
+    }
   }
 
-  // Flesch plain language
-  if (fre !== null) {
-    items.push(`<strong>Flesch Reading Ease score of ${Math.max(0, fre).toFixed(1)}:</strong> ${freLabel(fre)}. Scores range from 0 (most difficult) to 100 (easiest).`);
-  }
-
-  // Sentence length
+  // Sentence length — always shown
   if (avgSentLen <= 14) {
     items.push(`<strong>Average sentence length is ${avgSentLen.toFixed(1)} words</strong> — short and punchy. Good for quick-reading content.`);
   } else if (avgSentLen <= 20) {
@@ -152,22 +156,21 @@ function analyze() {
     items.push(`<strong>Average sentence length is ${avgSentLen.toFixed(1)} words</strong> — quite long. Consider breaking some sentences up for easier reading.`);
   }
 
-  // Long sentences
   if (longSentences > 0) {
-    items.push(`<strong>${longSentences} sentence${longSentences > 1 ? 's are' : ' is'} over 25 words long.</strong> These are worth reviewing — long sentences tend to be the biggest driver of high grade-level scores.`);
+    items.push(`<strong>${longSentences} sentence${longSentences > 1 ? 's are' : ' is'} over 25 words long.</strong> These are worth reviewing — long sentences are the biggest driver of high grade-level scores.`);
   }
 
-  // Complex words
   if (complexPct <= 10) {
     items.push(`<strong>${complexPct.toFixed(0)}% of words have 3+ syllables</strong> — low. Your vocabulary is accessible to a wide range of readers.`);
   } else if (complexPct <= 20) {
     items.push(`<strong>${complexPct.toFixed(0)}% of words have 3+ syllables</strong> — moderate. Typical for general non-fiction and professional writing.`);
   } else {
-    items.push(`<strong>${complexPct.toFixed(0)}% of words have 3+ syllables</strong> — high. This is a significant driver of complexity. Replacing some with simpler alternatives will lower the grade level.`);
+    items.push(`<strong>${complexPct.toFixed(0)}% of words have 3+ syllables</strong> — high. Replacing some with simpler alternatives will lower the grade level.`);
   }
 
-  // SMOG note if not enough sentences
-  if (smog === null) {
+  if (active === 'smog' && smog === null) {
+    items.push(`<strong>SMOG could not be calculated</strong> — it requires at least 30 sentences. Add more content for an accurate SMOG score.`);
+  } else if (!active && smog === null) {
     items.push(`<strong>SMOG index could not be calculated</strong> — it requires at least 30 sentences. Add more content for a complete analysis.`);
   }
 
@@ -189,14 +192,18 @@ function clearAll() {
   document.getElementById('text-input').value = '';
 
   ['words', 'sentences', 'avg', 'time'].forEach(id => {
-    document.getElementById('stat-' + id).textContent = '—';
+    const el = document.getElementById('stat-' + id);
+    if (el) el.textContent = '—';
   });
 
   ['fre', 'fkg', 'gfi', 'smog', 'cli', 'ari'].forEach(id => {
-    document.getElementById('val-' + id).textContent   = '—';
-    document.getElementById('label-' + id).textContent = '';
+    const val   = document.getElementById('val-' + id);
+    const label = document.getElementById('label-' + id);
+    if (val)   val.textContent   = '—';
+    if (label) label.textContent = '';
   });
 
+  const active = window.ACTIVE_SCORE || 'your text';
   document.getElementById('suggestions-list').innerHTML = `
     <div class="suggestion-item">
       <span>Paste your text above and click <strong>Analyze Text</strong> to see a full breakdown.</span>

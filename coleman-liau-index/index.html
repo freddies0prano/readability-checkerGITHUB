@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coleman-Liau Index Calculator — Free Online Tool | ReadabilityTool</title>
+  <meta name="description" content="Free Coleman-Liau Index calculator. Unlike other readability formulas, Coleman-Liau uses characters per word instead of syllables. Paste your text and get your grade level score instantly." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Coleman-Liau Index Calculator</h1>
+        <p class="subtitle">The Coleman-Liau Index estimates grade level using characters per word — making it uniquely reliable for technical and scientific text. Get your score instantly below.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste or type your text here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Calculate CLI Score</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid single">
+            <div class="score-card featured">
+              <div class="score-name">Coleman-Liau Index</div>
+              <div class="score-value" id="val-cli">—</div>
+              <div class="score-label" id="label-cli"></div>
+              <div class="score-desc">Returns a U.S. grade level. Unlike syllable-based formulas, Coleman-Liau uses characters per word, making it more consistent for texts with acronyms, technical terms, or non-standard vocabulary.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Calculate CLI Score</strong> to see your Coleman-Liau Index.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>What Is the Coleman-Liau Index?</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>How it works</h3>
+            <p>Developed by Meri Coleman and T. L. Liau in 1975, this formula calculates readability using the average number of characters per word and the average number of sentences per 100 words — rather than syllable counts used by most other formulas.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Why characters instead of syllables?</h3>
+            <p>Counting syllables requires linguistic knowledge and can be inconsistent — especially for technical terminology, proper nouns, or non-English words. Characters are objective and countable by any computer program, making the CLI formula highly consistent.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>When to use it</h3>
+            <p>The Coleman-Liau Index is particularly useful for evaluating scientific papers, technical documentation, and legal writing — text types where other formulas can produce inconsistent results due to unusual vocabulary.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>Coleman-Liau vs Other Readability Formulas</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>vs Flesch-Kincaid</h3>
+            <p>Both return a grade level, but Flesch-Kincaid uses syllable counts while Coleman-Liau uses character counts. For most general writing, the scores will be similar. For technical text with many acronyms, Coleman-Liau tends to be more reliable.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>vs Gunning Fog</h3>
+            <p>Gunning Fog focuses on "complex words" (3+ syllables) as its key variable. Coleman-Liau instead looks at average word length in characters. Neither is definitively better — they measure slightly different aspects of complexity.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Using multiple scores</h3>
+            <p>No single readability formula is perfect. The most reliable approach is to look at several scores together. If multiple formulas agree, you can be more confident in the result. Our <a href="/">main tool</a> calculates all six scores at once.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>window.ACTIVE_SCORE = 'cli';</script>
+</body>
+</html>

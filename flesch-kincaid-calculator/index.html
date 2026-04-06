@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flesch-Kincaid Grade Level Calculator — Free Online Tool | ReadabilityTool</title>
+  <meta name="description" content="Free Flesch-Kincaid Grade Level calculator. Find out what U.S. school grade level is needed to read your text. Paste your text and get your grade level score instantly." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Flesch-Kincaid Grade Level Calculator</h1>
+        <p class="subtitle">Find out what U.S. school grade level is needed to read your text. Paste your content below for an instant result.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste or type your text here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Calculate Grade Level</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid single">
+            <div class="score-card featured">
+              <div class="score-name">Flesch-Kincaid Grade Level</div>
+              <div class="score-value" id="val-fkg">—</div>
+              <div class="score-label" id="label-fkg"></div>
+              <div class="score-desc">The score corresponds directly to U.S. school grade levels. A score of 8 means an 8th grader can comfortably read it. A score of 12 corresponds to a high school senior.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Calculate Grade Level</strong> to see your Flesch-Kincaid score.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>What Is the Flesch-Kincaid Grade Level?</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>How it works</h3>
+            <p>The Flesch-Kincaid Grade Level formula was developed for the U.S. Navy in 1975 to assess the difficulty of technical manuals. It uses average sentence length and average syllables per word to output a U.S. school grade level.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Grade level reference</h3>
+            <p>Grade 1–4 is elementary reading level. Grade 5–8 is middle school. Grade 9–12 is high school. Grade 13–16 is college level. Above 16 is graduate or professional level writing.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Common benchmarks</h3>
+            <p>Most popular novels score between Grade 6 and 8. Newspaper articles typically target Grade 8–10. Academic journal articles often score Grade 14–16. The Bible scores approximately Grade 9.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>How to Lower Your Flesch-Kincaid Grade Level</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Reduce sentence length</h3>
+            <p>Long sentences are the primary driver of a high grade level score. Try to keep most sentences under 20 words. Split complex sentences into two simpler ones wherever possible.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Use fewer multi-syllable words</h3>
+            <p>Words with 3 or more syllables significantly raise the grade level. Swap technical or Latinate words for shorter Anglo-Saxon equivalents where clarity allows. "Help" instead of "assistance." "Use" instead of "utilize."</p>
+          </div>
+          <div class="explainer-card">
+            <h3>When a high score is appropriate</h3>
+            <p>Not all writing should target a low grade level. Academic papers, legal documents, and technical manuals are written for educated audiences. A high Flesch-Kincaid score is only a problem if it doesn't match your audience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>window.ACTIVE_SCORE = 'fkg';</script>
+</body>
+</html>

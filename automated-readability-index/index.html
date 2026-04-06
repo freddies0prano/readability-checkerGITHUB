@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated Readability Index Calculator — Free Online Tool | ReadabilityTool</title>
+  <meta name="description" content="Free Automated Readability Index (ARI) calculator. One of the oldest readability formulas, ARI uses characters and sentence length to estimate U.S. grade level. Get your score instantly." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Automated Readability Index Calculator</h1>
+        <p class="subtitle">The ARI is one of the oldest and most reliable readability formulas. It uses characters per word and words per sentence to estimate U.S. grade level. Get your score instantly below.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste or type your text here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Calculate ARI Score</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid single">
+            <div class="score-card featured">
+              <div class="score-name">Automated Readability Index</div>
+              <div class="score-value" id="val-ari">—</div>
+              <div class="score-label" id="label-ari"></div>
+              <div class="score-desc">Returns a U.S. grade level. ARI uses characters per word and words per sentence — two variables that are easy to calculate mechanically, making it one of the most consistent readability formulas available.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Calculate ARI Score</strong> to see your Automated Readability Index.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>What Is the Automated Readability Index?</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>How it works</h3>
+            <p>The Automated Readability Index was introduced in 1967 and designed to be calculated by machines — hence "automated." It uses two simple measurements: average characters per word and average words per sentence, to output a U.S. school grade level.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Grade level reference</h3>
+            <p>An ARI score of 1 corresponds to 1st grade (ages 6–7). A score of 8 corresponds to 8th grade (ages 13–14). A score of 12 is a high school senior (age 18). Scores above 14 correspond to college and graduate-level reading.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Original purpose</h3>
+            <p>The ARI was originally developed for the U.S. Air Force to assess the readability of technical manuals and equipment documentation. It remains widely used in technical writing, military documentation, and government communications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>ARI vs Other Readability Formulas</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>vs Flesch-Kincaid</h3>
+            <p>Both ARI and Flesch-Kincaid Grade Level return a U.S. grade level score. Flesch-Kincaid uses syllable counts; ARI uses character counts. For most texts they produce similar results, but ARI tends to be more consistent for technical writing.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>vs Coleman-Liau</h3>
+            <p>Both use character counts rather than syllables. Coleman-Liau measures characters per 100 words; ARI measures characters per word. They often produce very similar scores and are both well-suited for technical and scientific writing.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Best practice</h3>
+            <p>Rather than relying on a single formula, compare scores across multiple formulas. When ARI, Flesch-Kincaid, and Coleman-Liau all agree, you can be confident in the grade level estimate. Our <a href="/">main tool</a> runs all six formulas at once.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>window.ACTIVE_SCORE = 'ari';</script>
+</body>
+</html>

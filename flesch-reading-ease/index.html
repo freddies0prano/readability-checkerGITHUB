@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flesch Reading Ease Calculator — Free Online Tool | ReadabilityTool</title>
+  <meta name="description" content="Free Flesch Reading Ease calculator. Instantly score your text on the 0–100 readability scale. Higher scores mean easier reading. Paste your text and get your score in seconds." />
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Readability<span>Tool</span></a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Flesch Reading Ease Calculator</h1>
+        <p class="subtitle">Instantly score your text on the Flesch Reading Ease scale. Higher scores mean your writing is easier to read.</p>
+      </div>
+    </section>
+
+    <section class="tool-section">
+      <div class="container">
+
+        <div class="editor-wrap">
+          <textarea id="text-input" placeholder="Paste or type your text here..."></textarea>
+          <div class="toolbar">
+            <button class="btn btn-primary" onclick="analyze()">Calculate Score</button>
+            <button class="btn" onclick="loadSample()">Load Sample</button>
+            <button class="btn" onclick="clearAll()">Clear</button>
+          </div>
+        </div>
+
+        <div id="results">
+          <div class="stats-row">
+            <div class="stat-card"><div class="stat-label">Words</div><div class="stat-value" id="stat-words">—</div></div>
+            <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="stat-sentences">—</div></div>
+            <div class="stat-card"><div class="stat-label">Avg Sentence</div><div class="stat-value" id="stat-avg">—</div></div>
+            <div class="stat-card"><div class="stat-label">Read Time</div><div class="stat-value" id="stat-time">—</div></div>
+          </div>
+
+          <div class="scores-grid single">
+            <div class="score-card featured">
+              <div class="score-name">Flesch Reading Ease</div>
+              <div class="score-value" id="val-fre">—</div>
+              <div class="score-label" id="label-fre"></div>
+              <div class="score-desc">Scale 0–100. Higher = easier to read. 90–100: Very easy. 70–80: Easy. 60–70: Standard. 50–60: Fairly difficult. 30–50: Difficult. 0–30: Very difficult.</div>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <h3>Breakdown</h3>
+            <div id="suggestions-list">
+              <div class="suggestion-item">
+                <span>Paste your text above and click <strong>Calculate Score</strong> to see your Flesch Reading Ease score.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="explainer">
+      <div class="container">
+        <h2>What Is the Flesch Reading Ease Score?</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>How it works</h3>
+            <p>The Flesch Reading Ease formula was developed by Rudolf Flesch in 1948. It calculates a score based on average sentence length and average number of syllables per word. Longer sentences and more syllables = lower (harder) score.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Score reference</h3>
+            <p>90–100 is very easy (5th grade). 70–80 is easy (6th grade). 60–70 is standard (7th grade). 50–60 is fairly difficult (high school). 30–50 is difficult (college). 0–30 is very difficult (professional/academic).</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Who uses it</h3>
+            <p>The U.S. Department of Defense uses Flesch Reading Ease for evaluating documents. Many insurance companies are required by law to write policies above a certain Flesch score. Bloggers and content writers use it to gauge accessibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="explainer" style="background:#faf9f7; border-top: 1px solid #e8e6e0;">
+      <div class="container">
+        <h2>How to Improve Your Flesch Reading Ease Score</h2>
+        <div class="explainer-grid">
+          <div class="explainer-card">
+            <h3>Shorten your sentences</h3>
+            <p>Average sentence length is the biggest driver of your score. Aim for an average of 15–20 words per sentence. Mix short punchy sentences with longer ones to keep rhythm without losing clarity.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Use simpler words</h3>
+            <p>Words with fewer syllables score better. Replace "utilize" with "use," "demonstrate" with "show," "approximately" with "about." Simpler words are almost always clearer too.</p>
+          </div>
+          <div class="explainer-card">
+            <h3>Break up paragraphs</h3>
+            <p>While paragraph length doesn't directly affect the score, shorter paragraphs make text feel less dense and more approachable — which complements a good Flesch score with better overall readability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 ReadabilityTool.com — Free to use.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>window.ACTIVE_SCORE = 'fre';</script>
+</body>
+</html>
