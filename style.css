@@ -118,7 +118,7 @@ nav a.active { color: #1a1a18; font-weight: 500; }
 .nav-dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
@@ -128,6 +128,17 @@ nav a.active { color: #1a1a18; font-weight: 500; }
   min-width: 220px;
   z-index: 200;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  margin-top: 0;
+}
+
+.nav-dropdown::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 
 .nav-dropdown-menu a {
