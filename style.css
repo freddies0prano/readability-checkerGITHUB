@@ -86,7 +86,7 @@ a.logo { text-decoration: none; color: inherit; }
   text-underline-offset: 2px;
 }
 
-nav { display: flex; gap: 1.5rem; }
+nav { display: flex; gap: 1.5rem; align-items: center; }
 
 nav a {
   font-size: 14px;
@@ -95,6 +95,202 @@ nav a {
 }
 
 nav a:hover { color: #1a1a18; }
+nav a.active { color: #1a1a18; font-weight: 500; }
+
+/* Dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.nav-dropdown-btn:hover { color: #1a1a18; }
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #e8e6e0;
+  border-radius: 10px;
+  padding: 6px 0;
+  min-width: 220px;
+  z-index: 200;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap;
+  transition: background 0.1s;
+}
+
+.nav-dropdown-menu a:hover {
+  background: #f7f6f2;
+  color: #1a1a18;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
+}
+
+/* About page styles */
+.about-section {
+  padding: 2.5rem 0 4rem;
+}
+
+.about-block {
+  margin-bottom: 3rem;
+}
+
+.about-block h2 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a18;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e8e6e0;
+}
+
+.about-block p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.about-card {
+  background: #faf9f7;
+  border: 1px solid #e8e6e0;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.about-card h3 {
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a18;
+  margin-bottom: 6px;
+}
+
+.about-card p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1a1a18;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-text strong {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a18;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.step-text p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Formula list */
+.formula-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.formula-item {
+  padding: 1.25rem 1.5rem;
+  background: #faf9f7;
+  border: 1px solid #e8e6e0;
+  border-radius: 10px;
+}
+
+.formula-item h3 {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a18;
+  margin-bottom: 8px;
+}
+
+.formula-item h3 a {
+  color: #1a1a18;
+  text-decoration: none;
+}
+
+.formula-item h3 a:hover {
+  color: #5a4fcf;
+}
+
+.formula-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .nav-dropdown-menu { left: auto; right: 0; transform: none; }
+}
 
 /* =====================
    Hero
